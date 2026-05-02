@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel fotos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo-header" onclick="irAInicio()">
+        <img src="img/logo.png" alt="Logo">
+        <span>Angel Fotos</span>
+    </div>
+
+    <div class="button-strip">
+        <div class="header-actions">
+            <button type="button" onclick="mostrarSeccion('quien-soy')">¿Quién soy?</button>
+            <button type="button" onclick="mostrarSeccion('experiencia')">Mi experiencia</button>
+            <button type="button" onclick="irAContacto()">Contacto</button>
+            <button type="button" class="btn-portfolio" onclick="irAPortafolio()">PORTAFOLIO</button>
+        </div>
+    </div>
+
+</header>
+
+<!-- PORTADA -->
+<section id="hero" class="hero">
+    <div class="carousel" aria-label="Carrusel de fotos">
+        <div class="slide active" style="background-image: url('img/carrusel\ 1.jpg');">
+            <div class="slide-content">
+                <span>Momentos únicos en cada toma</span>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('img/carrusel\ 2.jpg');">
+            <div class="slide-content">
+                <span>Momentos únicos en cada toma</span>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('img/carrusel\ 3.jpg');">
+            <div class="slide-content">
+                <span>Momentos únicos en cada toma</span>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('img/carrusel\ 1.jpg');">
+            <div class="slide-content">
+                <span>Momentos únicos en cada toma</span>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('/carrusel\ 2.jpg');">
+            <div class="slide-content">
+                <span>Momentos únicos en cada toma</span>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+        </div>
+
+        <button class="carousel-control prev" type="button" onclick="prevSlide()" aria-label="Anterior slide">‹</button>
+        <button class="carousel-control next" type="button" onclick="nextSlide()" aria-label="Siguiente slide">›</button>
+
+        <div class="carousel-dots">
+            <button class="dot active" type="button" onclick="goSlide(0)" aria-label="Mostrar slide 1"></button>
+            <button class="dot" type="button" onclick="goSlide(1)" aria-label="Mostrar slide 2"></button>
+            <button class="dot" type="button" onclick="goSlide(2)" aria-label="Mostrar slide 3"></button>
+            <button class="dot" type="button" onclick="goSlide(3)" aria-label="Mostrar slide 4"></button>
+            <button class="dot" type="button" onclick="goSlide(4)" aria-label="Mostrar slide 5"></button>
+        </div>
+    </div>
+</section>
+
+<section id="principal" class="principal-home">
+    <div class="principal-content">
+
+        <!-- 🔥 ARRIBA: TEXTO + VIDEO -->
+        <div class="principal-top">
+            <div class="principal-top-text">
+                <h2>¿Qué te puedo aportar?</h2>
+                <p>Descubre la fotografía con estilo y emoción.</p>
+            </div>
+
+            <div class="principal-top-video">
+                <video controls>
+                    <source src="films/ver1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <!-- 🔥 ABAJO: IGUAL QUE TU ESTILO -->
+        <div class="preview-split">
+
+            <!-- IZQUIERDA (FOTOS) -->
+            <div class="preview fotos">
+                <h2>Fotografía</h2>
+
+                <img src="img/modelaje/modelaje1.JPG" alt="Foto 1">
+                <img src="img/modelaje/modelaje2.JPG" alt="Foto 2">
+                <img src="img/modelaje/modelaje3.JPG" alt="Foto 3">
+                <img src="img/modelaje/modelaje4.JPG" alt="Foto 4">
+                <img src="img/modelaje/modelaje8.JPG" alt="Foto 5">
+            </div>
+
+            <!-- DERECHA (VIDEOS) -->
+            <div class="preview videos">
+                <h2>Videos</h2>
+
+                <video controls>
+                    <source src="films/ver1.mp4" type="video/mp4">
+                </video>
+
+                <video controls>
+                    <source src="films/ver2.mp4" type="video/mp4">
+                </video>
+
+                <video controls>
+                    <source src="films/hor1.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+
+        <div class="marketing-digital">
+            <h2>Marketing Digital</h2>
+            <p>Aquí irá el contenido de marketing digital. Por ahora dejamos el área lista para agregar videos próximamente.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="quien-soy">
+    <div class="hero-quien">
+        <img src="img/carrusel 3.jpg" alt="¿Quién soy?">
+        <div class="contenido-quien">
+            <h1>¿Quién soy?</h1>
+        </div>
+    </div>
+
+    <div class="quien-body">
+        <div class="quien-video">
+            <video controls>
+                <source src="films/hor1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="quien-texto">
+            <p>
+                Aquí va tu historia, quién eres, tu estilo de fotografía,
+                tu experiencia, y qué te hace único detrás de la cámara.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="experiencia">
+    <div class="hero-quien">
+        <img src="img/carrusel 3.jpg" alt="Mi experiencia">
+        <div class="contenido-quien">
+            <h1>Mi experiencia</h1>
+        </div>
+    </div>
+
+    <div class="quien-body">
+        <div class="quien-video">
+            <video controls>
+                <source src="films/ver1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="quien-texto">
+            <p>
+                Aquí está mi experiencia profesional: proyectos, clientes y estilo creativo.
+                Descubre cómo trabajo para lograr imágenes con personalidad y emoción.
+            </p>
+        </div>
+    </div>
+
+    <div id="contacto" class="contacto">
+        <div class="contacto-panel">
+            <img src="img/perfil.jpg" alt="Perfil fotógrafo">
+
+            <div class="contacto-info">
+                <h2>Contactanos</h2>
+                <p>Hola, soy un fotógrafo apasionado por capturar momentos especiales con estilo y emoción.</p>
+                <p>Teléfono: <a href="tel:1234567890">123-456-7890</a></p>
+                <p>Correo: <a href="mailto:Angelejemplo@gmail.com">Angelejemplo@gmail.com</a></p>
+                <div class="redes">
+                    <a href="https://www.instagram.com/angelvel_photo?igsh=MXZqMHR5c2oyNm5tZw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer noopener">
+                        <img src="img/insta.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- PORTAFOLIO -->
+<section id="fotos">
+    <div class="menu-hamburguesa" onclick="toggleMenuFiltro()">
+        ☰
+    </div>
+
+    <div class="categoria-hero" id="categoriaHero" style="background-image: url('img/modelaje/modelaje1.JPG');">
+        <div class="categoria-hero-content">
+            <span class="categoria-hero-title">Modelaje</span>
+            <p class="categoria-hero-text">Capturando estilo y personalidad.</p>
+        </div>
+    </div>
+
+    
+
+    <div class="galeria-pinterest" id="galeria"></div>
+    <div class="menu-lateral" id="menuFiltros">
+        <button onclick="filtrar('modelaje')">Modelaje</button>
+        <button onclick="filtrar('mascotas')">Mascotas</button>
+        <button onclick="filtrar('bbc')">BBC</button>
+        <button onclick="filtrar('biker')">Biker</button>
+        <button onclick="filtrar('comida')">Comida</button>
+        <button onclick="filtrar('prendas')">Prendas</button>
+
+        <hr>
+
+        <button onclick="irAVideos('videos')">Videos</button>
+        <button onclick="irAVideos('videos-bbc')">Videos BBC</button>
+        <button onclick="irAVideos('videos-marketing')">Marketing</button>
+    </div>
+</section>
+
+<section id="intro-video" class="intro-video">
+    <div class="video-container">
+        <video controls autoplay muted loop>
+            <source src="films/ver1.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<section class="preview-split">
+
+    <!-- IZQUIERDA (FOTOS) -->
+    <div class="preview fotos">
+        <h2>Fotografía</h2>
+
+        <img src="img/modelaje/modelaje1.JPG">
+        <img src="img/modelaje/modelaje2.JPG">
+        <img src="img/modelaje/modelaje3.JPG">
+
+        <button onclick="irAPortafolio()">Ver más</button>
+    </div>
+
+    <!-- DERECHA (VIDEOS) -->
+    <div class="preview videos">
+        <h2>Marketing Digital</h2>
+
+        <video controls>
+            <source src="films/ver1.mp4" type="video/mp4">
+        </video>
+
+        <video controls>
+            <source src="films/ver2.mp4" type="video/mp4">
+        </video>
+
+        <button onclick="irAVideos('videos-marketing')">Ver más</button>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Mi Galería - Todos los derechos reservados</p>
+
+    <div class="colaboradores">
+        <img src="img/img7.jpg">
+        <img src="img/img8.jpg">
+        <img src="img/img7.jpg">
+        <img src="img/img8.jpg">
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
