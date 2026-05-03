@@ -151,6 +151,12 @@ const config = {
         ext: "jpg",
         files: Array.from({ length: 77 }, (_, i) => i + 1)
     },
+    eventos: {
+        folder: "eventos",
+        prefix: "FOTOGRAFIA-",
+        ext: "JPG",
+        files: [1]
+    },
     bbc: { folder: "", prefix: "bbc", ext: "jpg", files: [] },
     biker: { folder: "", prefix: "biker", ext: "jpg", files: [] },
     prendas: { folder: "", prefix: "prendas", ext: "jpg", files: [] }
@@ -225,6 +231,11 @@ function actualizarHero(categoria) {
             img: "img/mascotas/mascotas1.jpg",
             title: "Mascotas",
             text: "Momentos únicos con tus mejores amigos."
+        },
+        eventos: {
+            img: "img/eventos/FOTOGRAFIA-1.JPG",
+            title: "Eventos",
+            text: "Instantes especiales con estilo y emoción."
         },
         bbc: {
             img: "img/bbc1.jpg",
