@@ -11,8 +11,8 @@ box-sizing: inherit;
 body {
 margin: 0;
 overflow-x: hidden;
-font-family: 'Montserrat', sans-serif;
-background: #666;
+font-family: Century, 'Century Gothic', serif;
+background: #ffffff;
 color: #121212;
 display: flex;
 flex-direction: column;
@@ -25,17 +25,32 @@ background: rgba(0, 0, 0, 0.12);
 }
 
 /* TITULOS */
-h1, .nombre {
-    font-family: 'Great Vibes', 'Playfair Display', serif;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 10px rgba(0,0,0,0.18);
+h1,
+h2,
+.categoria-hero-title,
+.contacto-info h2,
+.slide-content span,
+.principal-top-text h2,
+.principal-card h3,
+.preview h2,
+.marketing-digital h2 {
+
+    font-family: 'Playfair Display', serif;
+    font-style: normal; /* 🔥 elimina cursiva */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+        /* 🔥 delineado elegante */
+    -webkit-text-stroke: 0.9px #000;
+
+    /* ❌ sin sombras grises */
+    text-shadow: none;
 }
 
-h2, .categoria-hero-title, .contacto-info h2, .slide-content span {
-    font-family: 'Great Vibes', 'Playfair Display', serif;
-    text-shadow: 0 0 10px rgba(0,0,0,0.16);
-    -webkit-text-stroke: 0.35px rgba(255,255,255,0.8);
-    text-stroke: 0.35px rgba(255,255,255,0.8);
+.categoria-hero-text {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    color: white;
 }
 
 /* ===== HEADER FIJO ===== */
@@ -68,17 +83,18 @@ h2, .categoria-hero-title, .contacto-info h2, .slide-content span {
 /* LOGO */
 .logo-header {
     position: fixed;
-    top: 10px;
+    top: 2px; /* 🔥 más arriba */
     left: 20px;
     z-index: 10000;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 .logo-header img {
-height: 40px;
-border-radius: 50%;
+    height: 90px; /* 🔥 un poquito más grande */
+    width: auto;
+    border-radius: 60%;
 }
 
 .logo-header span {
@@ -160,7 +176,9 @@ background-position: center;
 opacity: 0;
 transform: scale(1.05);
 transition: opacity 0.8s ease, transform 0.8s ease;
-filter: brightness(0.85);
+
+/* 🔥 quitamos el gris */
+filter: none;
 }
 
 .slide.active {
@@ -254,8 +272,8 @@ display: block;
 
 .principal-home {
     background: transparent;
-    color: white;
-    padding: 40px 24px;
+    color: rgb(0, 0, 0);
+    padding: 20px 14px;
 }
 
 /* 🔥 CONTENEDOR */
@@ -281,13 +299,6 @@ display: block;
 
 .principal-top-text {
     flex: 1 1 320px;
-}
-
-.principal-top-text h2,
-.principal-card h3 {
-    font-family: 'Great Vibes', 'Playfair Display', serif;
-    letter-spacing: 0.5px;
-    text-transform: none;
 }
 
 .principal-top-text h2 {
@@ -797,21 +808,25 @@ transform: rotate(-90deg);
     width: 100%;
     height: 70vh;
 
-    margin: 0 0 30px;   /* 👈 espacio abajo */
+    margin: 0 0 30px;
 
     border-radius: 0;
     overflow: hidden;
 
+    /* 🔥 MEJOR AJUSTE PARA QUE NO SE VEA RARO */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #fff;
 }
 
 .categoria-hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+
+    /* 🔥 casi transparente */
+    background: rgba(0,0,0,0.08);
 }
 
 .categoria-hero-content {
@@ -820,24 +835,42 @@ transform: rotate(-90deg);
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: #ffffff;
     width: 90%;
 }
 
+/* ===== TITULOS BANNERS ===== */
 .categoria-hero-title {
     font-size: clamp(3rem, 6vw, 5rem);
     letter-spacing: 6px;
+
     color: rgb(255, 255, 255);
+
+    /* 🔥 un poquito más grueso */
+    -webkit-text-stroke: 0.9px #000;
+
+    text-shadow: none;
+
+    font-weight: 600;
+
+    opacity: 1;
 }
 
 .categoria-hero-text {
     font-size: clamp(1rem, 1.2vw, 1.2rem);
-    opacity: 0.95;
-    max-width: 780px;
-    margin: 0 auto;
-    line-height: 1.8;
-    text-shadow: 0 5px 20px rgba(0,0,0,0.35);
+
+    color: rgb(255,255,255);
+
+    /* 🔥 también un poquito más marcado */
+    -webkit-text-stroke: 0.35px #000;
+
+    text-shadow: none;
+
+    font-weight: 400;
+
+    opacity: 1;
 }
+
 
 .categoria-hero.fade-in {
     animation: aparecer 0.45s ease both;
@@ -896,7 +929,8 @@ transform: rotate(-90deg);
 }
 
 .preview-split {
-    background: #000000;
+    font-family: 'Great Vibes', 'Playfair Display', serif;
+    background: #666;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -936,6 +970,7 @@ transform: rotate(-90deg);
 }
 
 #principal .preview.videos {
+    font-family: 'Playfair Display', serif;
     background: rgba(0, 0, 0, 0.06);
     color: white;
     display: grid;
@@ -957,6 +992,7 @@ transform: rotate(-90deg);
 }
 
 #principal .preview.videos h2 {
+    font-family: 'Playfair Display', serif;
     grid-column: 1 / -1;
     margin-bottom: 14px;
 }
@@ -980,6 +1016,7 @@ transform: rotate(-90deg);
 }
 
 .preview h2 {
+    font-family: 'Playfair Display', serif;
     grid-column: 1 / -1;
     text-align: center;
     color: white;
@@ -998,11 +1035,10 @@ transform: rotate(-90deg);
 }
 
 .marketing-digital h2 {
+    font-family: 'Playfair Display', serif;
     text-align: center;
     color: white;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-}
+    font-size: 2.5rem;}
 
 .marketing-digital p {
     margin: 12px 0 0;

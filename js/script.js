@@ -4,10 +4,107 @@ const dots = document.querySelectorAll(".dot");
 let currentSlide = 0;
 let carouselInterval = null;
 
+const config = {
+    modelaje: {
+        folder: "modelaje",
+        prefix: "modelaje",
+        ext: "JPG",
+        files: [
+            1,2,3,4,5,6,7,8,9,10,12,13,14,15,18,19,20,21,22,24,25,26,27,28,
+            34,35,36,42,43,44,48,49,50,53,54,55,56
+        ]
+    },
+    mascotas: {
+        folder: "mascotas",
+        prefix: "mascotas",
+        ext: "jpg",
+        files: Array.from({ length: 25 }, (_, i) => i + 1)
+    },
+    comida: {
+        folder: "comida",
+        prefix: "comida",
+        ext: "jpg",
+        files: Array.from({ length: 77 }, (_, i) => i + 1)
+    },
+    eventos: {
+        folder: "eventos",
+        prefix: "FOTOGRAFIA-",
+        ext: "JPG",
+        files: [1]
+    },
+    bbc: { folder: "", prefix: "bbc", ext: "jpg", files: [] },
+    biker: { folder: "", prefix: "biker", ext: "jpg", files: [] },
+    fotosUrbanas: { folder: "fotos-urbanas", prefix: "fotos-urbanas", ext: "jpg", files: [] },
+    discotecas: { folder: "discotecas", prefix: "discotecas", ext: "jpg", files: [] },
+    producto: { folder: "producto", prefix: "producto", ext: "jpg", files: [] },
+    portafolioComercial: { folder: "portafolio-comercial", prefix: "FOTOGRAFIA-", ext: "jpg", files: Array.from({ length: 57 }, (_, i) => i + 1) },
+    deportes: { folder: "deportes", prefix: "deportes", ext: "jpg", files: [] }
+};
+
+// Banner de cada categoría del portafolio. Cambia aquí la foto que quieres mostrar en el encabezado.
+const data = {
+    modelaje: {
+        img: "img/modelaje/modelajebanner.JPG",
+        title: "Modelaje",
+        text: "Capturando estilo y personalidad."
+    },
+    mascotas: {
+        img: "img/mascotas/mascotas1.jpg",
+        title: "Mascotas",
+        text: "Momentos únicos con tus mejores amigos."
+    },
+    eventos: {
+        img: "img/eventos/FOTOGRAFIA-1.JPG",
+        title: "Eventos",
+        text: "Instantes especiales con estilo y emoción."
+    },
+    bbc: {
+        img: "img/bbc1.jpg",
+        title: "BBC",
+        text: "Producción visual creativa."
+    },
+    comida: {
+        img: "img/comida/comida1.jpg",
+        title: "Comida",
+        text: "Fotografía que despierta el apetito."
+    },
+    biker: {
+        img: "img/biker1.jpg",
+        title: "Biker",
+        text: "Velocidad y estilo."
+    },
+    fotosUrbanas: {
+        img: "img/fotos-urbanas/fotos-urbanas1.jpg",
+        title: "Fotos Urbanas",
+        text: "Capturando la esencia de la ciudad."
+    },
+    discotecas: {
+        img: "img/discotecas/discotecas1.jpg",
+        title: "Discotecas",
+        text: "Noches llenas de energía y diversión."
+    },
+    producto: {
+        img: "img/producto/bannerproducto.jpg",
+        title: "Producto",
+        text: "Fotografía de productos con detalle."
+    },
+    portafolioComercial: {
+        img: "img/portafolio-comercial/bannerportafoliocomercial.JPG",
+        title: "Portafolio Comercial",
+        text: "Trabajos comerciales profesionales."
+    },
+    deportes: {
+        img: "img/deportes/deportes1.jpg",
+        title: "Deportes",
+        text: "Acción y adrenalina en cada captura."
+    }
+};
+
 window.onload = () => {
     initCarousel();
     startCarousel();
     showSectionById('hero');
+    actualizarHero('modelaje');
 };
 
 /* ===== CARRUSEL ===== */
@@ -85,10 +182,6 @@ function mostrarSeccion(id) {
     showSectionById(id);
 }
 
-function irAContacto() {
-    showSectionById("contacto");
-}
-
 function irAPortafolio() {
     showSectionById("fotos");
 
@@ -100,7 +193,10 @@ function irAPortafolio() {
 function irAContacto() {
     showSectionById("experiencia");
     setTimeout(() => {
-        document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+        const contacto = document.getElementById("contacto");
+        if (contacto) {
+            contacto.scrollIntoView({ behavior: "smooth" });
+        }
     }, 100);
 }
 
@@ -129,43 +225,14 @@ function cargarGaleria(categoria) {
     const galeria = document.getElementById("galeria");
     galeria.innerHTML = ""; // 🔥 evita duplicados
 
-const config = {
-    modelaje: {
-        folder: "modelaje",
-        prefix: "modelaje",
-        ext: "JPG",
-        files: [
-            1,2,3,4,5,6,7,8,9,10,12,13,14,15,18,19,20,21,22,24,25,26,27,28,
-            34,35,36,42,43,44,48,49,50,53,54,55,56
-        ]
-    },
-    mascotas: {
-        folder: "mascotas",
-        prefix: "mascotas",
-        ext: "jpg",
-        files: Array.from({ length: 25 }, (_, i) => i + 1)
-    },
-    comida: {
-        folder: "comida",
-        prefix: "comida",
-        ext: "jpg",
-        files: Array.from({ length: 77 }, (_, i) => i + 1)
-    },
-    eventos: {
-        folder: "eventos",
-        prefix: "FOTOGRAFIA-",
-        ext: "JPG",
-        files: [1]
-    },
-    bbc: { folder: "", prefix: "bbc", ext: "jpg", files: [] },
-    biker: { folder: "", prefix: "biker", ext: "jpg", files: [] },
-    prendas: { folder: "", prefix: "prendas", ext: "jpg", files: [] }
-};
-
     const cat = config[categoria];
     if (!cat) return;
 
-    if (!cat.files || cat.files.length === 0) {
+    const files = Array.isArray(cat.files)
+        ? [...cat.files].sort((a, b) => Number(a) - Number(b))
+        : [];
+
+    if (files.length === 0) {
         const aviso = document.createElement("div");
         aviso.className = "galeria-empty";
         aviso.textContent = "No hay fotos disponibles para esta categoría.";
@@ -187,10 +254,17 @@ const config = {
             variants.push(`img/modelaje/modelaje ${number}.jpg`);
         }
 
+        if (category === "portafolioComercial") {
+            variants.push(`img/portafolio-comercial/FOTOGRAFIA-${number}.jpg`);
+            variants.push(`img/portafolio-comercial/FOTOGRAFIA-${number}.JPG`);
+            variants.push(`img/portafolio-comercial/FOTOGRAFIA${number}.jpg`);
+            variants.push(`img/portafolio-comercial/FOTOGRAFIA${number}.JPG`);
+        }
+
         return variants;
     };
 
-    cat.files.forEach((number) => {
+    files.forEach((number) => {
         const img = document.createElement("img");
         img.alt = categoria;
         img.classList.add(categoria);
@@ -221,44 +295,6 @@ const config = {
 function actualizarHero(categoria) {
     const hero = document.getElementById("categoriaHero");
 
-    const data = {
-        modelaje: {
-            img: "img/modelaje/modelaje1.JPG",
-            title: "Modelaje",
-            text: "Capturando estilo y personalidad."
-        },
-        mascotas: {
-            img: "img/mascotas/mascotas1.jpg",
-            title: "Mascotas",
-            text: "Momentos únicos con tus mejores amigos."
-        },
-        eventos: {
-            img: "img/eventos/FOTOGRAFIA-1.JPG",
-            title: "Eventos",
-            text: "Instantes especiales con estilo y emoción."
-        },
-        bbc: {
-            img: "img/bbc1.jpg",
-            title: "BBC",
-            text: "Producción visual creativa."
-        },
-        comida: {
-            img: "img/comida/comida1.jpg",
-            title: "Comida",
-            text: "Fotografía que despierta el apetito."
-        },
-        biker: {
-            img: "img/biker1.jpg",
-            title: "Biker",
-            text: "Velocidad y estilo."
-        },
-        prendas: {
-            img: "img/prendas1.jpg",
-            title: "Prendas",
-            text: "Detalles que destacan."
-        }
-    };
-
     const d = data[categoria];
     if (!d) return;
 
@@ -277,6 +313,9 @@ function irAVideos(id) {
     showSectionById(id);
 
     setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
     }, 200);
 }

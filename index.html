@@ -217,12 +217,16 @@
     <div class="galeria-pinterest" id="galeria"></div>
     <div class="menu-lateral" id="menuFiltros">
         <button onclick="filtrar('modelaje')">Modelaje</button>
-        <button onclick="filtrar('mascotas')">Mascotas</button>
-        <button onclick="filtrar('biker')">Biker</button>
         <button onclick="filtrar('eventos')">Eventos</button>
-        <button onclick="filtrar('bbc')">BBC</button>
+        <button onclick="filtrar('biker')">Biker</button>
+        <button onclick="filtrar('fotosUrbanas')">Fotos Urbanas</button>
+        <button onclick="filtrar('discotecas')">Discotecas</button>
+        <button onclick="filtrar('mascotas')">Mascotas</button>
         <button onclick="filtrar('comida')">Comida</button>
-        <button onclick="filtrar('prendas')">Prendas</button>
+        <button onclick="filtrar('bbc')">BBC</button>
+        <button onclick="filtrar('producto')">Producto</button>
+        <button onclick="filtrar('portafolioComercial')">Portafolio Comercial</button>
+        <button onclick="filtrar('deportes')">Deportes</button>
 
         <hr>
 
@@ -232,42 +236,29 @@
     </div>
 </section>
 
-<section id="intro-video" class="intro-video">
-    <div class="video-container">
-        <video controls autoplay muted loop>
+<section id="videos" style="display: none;">
+    <h2>Videos</h2>
+    <div class="video-gallery">
+        <video controls>
             <source src="films/ver1.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="films/ver2.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="films/hor1.mp4" type="video/mp4">
         </video>
     </div>
 </section>
 
-<section class="preview-split">
+<section id="videos-bbc" style="display: none;">
+    <h2>Videos BBC</h2>
+    <p>Contenido para videos BBC próximamente.</p>
+</section>
 
-    <!-- IZQUIERDA (FOTOS) -->
-    <div class="preview fotos">
-        <h2>Fotografía</h2>
-
-        <img src="img/modelaje/modelaje1.JPG">
-        <img src="img/modelaje/modelaje2.JPG">
-        <img src="img/modelaje/modelaje3.JPG">
-
-        <button onclick="irAPortafolio()">Ver más</button>
-    </div>
-
-    <!-- DERECHA (VIDEOS) -->
-    <div class="preview videos">
-        <h2>Marketing Digital</h2>
-
-        <video controls>
-            <source src="films/ver1.mp4" type="video/mp4">
-        </video>
-
-        <video controls>
-            <source src="films/ver2.mp4" type="video/mp4">
-        </video>
-
-        <button onclick="irAVideos('videos-marketing')">Ver más</button>
-    </div>
-
+<section id="videos-marketing" style="display: none;">
+    <h2>Marketing Digital</h2>
+    <p>Contenido para marketing digital próximamente.</p>
 </section>
 
 <!-- FOOTER -->
